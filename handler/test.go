@@ -9,6 +9,10 @@ import (
 // Test お試しAPI
 func Test() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello World")
+		jsonData := map[string]string{
+			"message": "Hello World",
+			"data":    "test",
+		}
+		return c.JSON(http.StatusOK, jsonData)
 	}
 }
